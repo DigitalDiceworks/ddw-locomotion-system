@@ -536,6 +536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _distanceToMax: 0.5
+  _ignoreYAxis: 1
 --- !u!114 &114911113195460148
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -548,6 +549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _distanceToMax: 0.5
+  _ignoreYAxis: 1
 --- !u!114 &114930992036558502
 MonoBehaviour:
   m_ObjectHideFlags: 1
