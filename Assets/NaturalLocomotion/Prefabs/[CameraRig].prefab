@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4552421157031928}
   - component: {fileID: 114931837256328274}
+  - component: {fileID: 114911113195460148}
+  - component: {fileID: 114263903542871862}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -73,6 +75,8 @@ GameObject:
   - component: {fileID: 23618947334915172}
   - component: {fileID: 33815538007903602}
   - component: {fileID: 114934690655815846}
+  - component: {fileID: 114930992036558502}
+  - component: {fileID: 114519734699565038}
   m_Layer: 0
   m_Name: '[CameraRig]'
   m_TagString: Untagged
@@ -105,6 +109,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4433071580674924}
   - component: {fileID: 114460114187507304}
+  - component: {fileID: 114878502810452142}
+  - component: {fileID: 114941337250643354}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: Untagged
@@ -385,6 +391,24 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1881259115926980}
   m_Enabled: 1
+--- !u!114 &114263903542871862
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1081152095797540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7346a42905a29b347b1f492e8ad7b49f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerIndex: 0
+  triggerPressed: 0
+  steamPressed: 0
+  menuPressed: 0
+  padPressed: 0
+  padTouched: 0
+  gripped: 0
 --- !u!114 &114272697355858070
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -442,6 +466,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vrcam: {fileID: 0}
+--- !u!114 &114519734699565038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1579285711666602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4d37e948fe36345b23c06271851880, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxSpeed: 10
+  _sprintModifier: 2
+  _allowedSprintPressTime: 0.2
 --- !u!114 &114542056011607426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -486,6 +524,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   origin: {fileID: 0}
+--- !u!114 &114878502810452142
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1836351158572544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715d02c3fe87a024d85c5378581430fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distanceToMax: 0.5
+--- !u!114 &114911113195460148
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1081152095797540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715d02c3fe87a024d85c5378581430fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distanceToMax: 0.5
+--- !u!114 &114930992036558502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1579285711666602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88210608dd51430499621ff94f39e23c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114931837256328274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -525,6 +598,24 @@ MonoBehaviour:
   - {x: -1.65, y: 0.01, z: -1.275}
   - {x: -1.65, y: 0.01, z: 1.275}
   - {x: 1.65, y: 0.01, z: 1.275}
+--- !u!114 &114941337250643354
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1836351158572544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7346a42905a29b347b1f492e8ad7b49f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerIndex: 0
+  triggerPressed: 0
+  steamPressed: 0
+  menuPressed: 0
+  padPressed: 0
+  padTouched: 0
+  gripped: 0
 --- !u!124 &124044517109751674
 Behaviour:
   m_ObjectHideFlags: 1
