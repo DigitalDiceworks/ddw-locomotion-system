@@ -1,6 +1,7 @@
 ﻿namespace NaturalLocomotion
 {
     using System;
+    using System.Collections.Generic;
     using UnityEngine;
 
     public struct InputContainer
@@ -15,6 +16,8 @@
     {
         private NaturalInput _primaryInput;
         private NaturalInput _secondaryInput;
+
+        private List<IModifierHandler> _modifiers = new List<IModifierHandler>();
 
         public event InputDelegate onInput;
         public event Action onBeginPrimary;
@@ -52,6 +55,44 @@
             }
         }
 
+        public void AddModifier(IModifierHandler modifier)
+        {
+            if (!_modifiers.Contains(modifier))
+            {
+                _modifiers.Add(modifier);
+            }
+        }
+
+        public void RemoveModifier(IModifierHandler modifier)
+        {
+            if (_modifiers.Contains(modifier))
+            {
+                _modifiers.Remove(modifier);
+            }
+        }
+
+        public void ToggleModifier(IModifierHandler modifier)
+        {
+            if (_modifiers.Contains(modifier))
+            {
+                _modifiers.Remove(modifier);
+            }
+            else
+            {
+                _modifiers.Add(modifier);
+            }
+        }
+
+        private Vector3 CalculateDirectionWithModifiers(Vector3 inputDirection)
+        {
+            Vector3 direction = inputDirection;
+            foreach(IModifierHandler modifier in _modifiers)
+            {
+                direction = modifier.ModifyDirection(direction);
+            }
+            return direction;
+        }
+
         private void Update()
         {
             if (onInput == null)
@@ -62,7 +103,7 @@
                 InputContainer container = new InputContainer
                 {
                     isPrimary = true,
-                    direction = _primaryInput.GetVector()
+                    direction = CalculateDirectionWithModifiers(_primaryInput.GetVector())
                 };
                 onInput(container);
             }
@@ -71,7 +112,7 @@
                 InputContainer container = new InputContainer
                 {
                     isPrimary = false,
-                    direction = _secondaryInput.GetVector()
+                    direction = CalculateDirectionWithModifiers(_secondaryInput.GetVector())
                 };
                 onInput(container);
             }
