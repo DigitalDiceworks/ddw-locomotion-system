@@ -17,7 +17,7 @@
         private NaturalInput _primaryInput;
         private NaturalInput _secondaryInput;
 
-        private List<IModifierHandler> _modifiers = new List<IModifierHandler>();
+        private HashSet<IModifierHandler> _modifiers = new HashSet<IModifierHandler>();
 
         public event InputDelegate onInput;
         public event Action onBeginPrimary;
@@ -30,12 +30,18 @@
             if (_primaryInput == null)
             {
                 _primaryInput = input;
-                onBeginPrimary?.Invoke();
+                if (onBeginPrimary != null)
+                {
+                    onBeginPrimary();
+                }
             }
             else
             {
                 _secondaryInput = input;
-                onBeginSecondary?.Invoke();
+                if (onBeginSecondary != null)
+                {
+                    onBeginSecondary();
+                }
             }
         }
 
@@ -45,41 +51,40 @@
             {
                 _primaryInput = null;
                 _secondaryInput = null;
-                onEndSecondary?.Invoke();
-                onEndPrimary?.Invoke();
+                if (onEndSecondary != null)
+                {
+                    onEndSecondary();
+                }
+                if (onEndPrimary != null)
+                {
+                    onEndPrimary();
+                }
             }
             else
             {
                 _secondaryInput = null;
-                onEndSecondary?.Invoke();
+                if (onEndSecondary != null)
+                {
+                    onEndSecondary();
+                }
             }
         }
 
         public void AddModifier(IModifierHandler modifier)
         {
-            if (!_modifiers.Contains(modifier))
-            {
-                _modifiers.Add(modifier);
-            }
+            _modifiers.Add(modifier);
         }
 
         public void RemoveModifier(IModifierHandler modifier)
         {
-            if (_modifiers.Contains(modifier))
-            {
-                _modifiers.Remove(modifier);
-            }
+            _modifiers.Remove(modifier);
         }
 
         public void ToggleModifier(IModifierHandler modifier)
         {
-            if (_modifiers.Contains(modifier))
+            if (!_modifiers.Add(modifier))
             {
                 _modifiers.Remove(modifier);
-            }
-            else
-            {
-                _modifiers.Add(modifier);
             }
         }
 
