@@ -2,11 +2,19 @@
 {
     using UnityEngine;
 
+    /// <summary>
+    /// Core Input style of Natural Locomotion using the Grip Buttons.
+    /// Pressing the grip will activate and releasing the grip will deactivate the input.
+    /// Input Vector is the delta between where our controller was when we pressed the grip
+    /// button and now.
+    /// </summary>
     [RequireComponent(typeof(SteamVR_TrackedController))]
     public class GripInput : NaturalInput
     {
-        [SerializeField] private float _distanceToMax;
-        [SerializeField] private bool _ignoreYAxis;
+        [Header("How far you need to move the controller before you reach the maximum value"), SerializeField]
+        private float _distanceToMax = 0.5f;
+        [Header("Whether or not we use the Y axis in our vector calculation"), SerializeField]
+        private bool _ignoreYAxis = true;
 
         private Vector3 _startPosition;
 
@@ -30,6 +38,13 @@
             hub.EndInput(this);
         }
 
+        /// <summary>
+        /// Returns a vector in the direction of where the user has moved the controller.
+        /// The vector will have a max magnitude of 1 to keep in line with the standard.
+        /// Uses distance to max to scale the resulting direction.
+        /// Y will be zero if ignore Y axis is set to true.
+        /// </summary>
+        /// <returns></returns>
         public override Vector3 GetVector()
         {
             Vector3 delta = transform.localPosition - _startPosition;
