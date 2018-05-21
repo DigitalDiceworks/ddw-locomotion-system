@@ -4,24 +4,24 @@ This document serves as a walkthrough to getting your project ready to go for na
 ## Steam VR
 In order to use natural locomotion you will first need to download and import the steam VR plugin.
 The easiest way is to download the plugin from the unity asset store and import it into your existing or new project.
-[Unity asset store link](https://assetstore.unity.com/packages/templates/systems/steamvr-plugin-32647)
+Download it from the [Unity asset store here](https://assetstore.unity.com/packages/templates/systems/steamvr-plugin-32647)
 
 ## Downloading Natural Locomotion
 There are three methods of downloading the natural locomotion package.
 1. Unity asset store here (Waiting to submit)
 1. [Github releases page](https://github.com/DigitalDiceworks/natural-locomotion/releases)
-1. You can of course just clone the repo and be on the bleeding edge or make your own changes in a forked repository.
+1. Just clone the repo or a forked repo and be on the bleeding edge.
 
 Unity asset store will be easier to update but may be delayed for approvals.
 Cloning the repo will require manual updates but may be required if you need to make local changes.
 
-## Importing Natual Locomotion
+## Importing Natural Locomotion
 After downloading the unity package you can open your project and then double click the downloaded package file to import it into your project.
 You can also use the `Assets > Import Package > Custom Package...` menu option.
 In the importing window selection import everything.
 
 ## Samples
-We have a few example scenes allowing you to try out the system before implementing it yourself.
+We have a few sample scenes allowing you to try out the system before implementing it yourself.
 Below is a brief explanation of each sample scene.
 
 ### Basic Movement
