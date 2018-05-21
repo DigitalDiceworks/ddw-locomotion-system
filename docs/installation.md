@@ -8,7 +8,7 @@ Download it from the [Unity asset store here](https://assetstore.unity.com/packa
 
 ## Downloading Natural Locomotion
 There are three methods of downloading the natural locomotion package.
-1. Unity asset store here (Waiting to submit)
+1. [Unity asset store here](http://u3d.as/1c5V)
 1. [Github releases page](https://github.com/DigitalDiceworks/natural-locomotion/releases)
 1. Just clone the repo or a forked repo and be on the bleeding edge.
 
