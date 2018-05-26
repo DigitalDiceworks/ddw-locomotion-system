@@ -12,10 +12,10 @@ Natural Locomotion is a VR movement system aimed at enabling a seemless unrestri
 All documentation is stored in the `docs` directory. In addition to guides and walkthroughs the code base is fully documented with XML docs.
 * [Installation](docs/installation.md): Preparing, downloading, installing and trying the sample scenes.
 * [Getting Started](docs/gettingstarted.md): How to get started using Natural Locomotion in your game.
-* [Locomotion Hub](docs/locomotionhub.md): What does the locomotion hub do and why does it do it.
-* [Natural Input](docs/naturalinput.md): How to gather player inputs, looking mainly at our recommended method.
-* [Movement](docs/movement.md): How to actually move the player.
-* [Modifiers](docs/modifiers.md): How to take raw input and apply modifications based on anything your game needs.
+* [Locomotion Hub](docs/settings.md#Locomotion Hub): What does the locomotion hub do and why does it do it.
+* [Natural Input](docs/settings.md#Natural Input): How to gather player inputs, looking mainly at our recommended method.
+* [Movement](docs/settings.md#Movement): How to actually move the player.
+* [Modifiers](docs/settings.md#Modifiers): How to take raw input and apply modifications based on anything your game needs.
 
 ## Contributing
 A more in depth guide will be written soon. But any of the following:
