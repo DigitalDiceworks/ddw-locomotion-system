@@ -20,4 +20,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Translation camera rig prefab for easy starting
 - Rigidbody camera rig prefab for easy starting with physics
 
-[0.1.0 Source](https://github.com/DigitalDiceworks/natural-locomotion/tree/v0.1.0)
+[0.1.0 Source]: https://github.com/DigitalDiceworks/natural-locomotion/tree/v0.1.0
