@@ -181,7 +181,7 @@
                 InputContainer container = new InputContainer
                 {
                     isPrimary = true,
-                    direction = CalculateDirectionWithModifiers(_primaryInput.GetVector())
+                    direction = CalculateDirectionWithModifiers(_primaryInput.GetPrimary())
                 };
                 onInput(container);
             }
@@ -190,7 +190,7 @@
                 InputContainer container = new InputContainer
                 {
                     isPrimary = false,
-                    direction = CalculateDirectionWithModifiers(_secondaryInput.GetVector())
+                    direction = CalculateDirectionWithModifiers(_secondaryInput.GetSecondary())
                 };
                 onInput(container);
             }

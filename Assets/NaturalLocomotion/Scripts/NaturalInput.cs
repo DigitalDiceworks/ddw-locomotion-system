@@ -8,11 +8,12 @@
     /// </summary>
     public class NaturalInput : HubConnector
     {
-        /// <summary>
-        /// Gets the current input vector, will only be called if the input is active.
-        /// </summary>
-        /// <returns>Normalized input for the current frame</returns>
-        public virtual Vector3 GetVector()
+        public virtual Vector3 GetPrimary()
+        {
+            return Vector3.zero;
+        }
+
+        public virtual Vector3 GetSecondary()
         {
             return Vector3.zero;
         }

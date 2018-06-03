@@ -12,11 +12,11 @@
     public class GripInput : NaturalInput
     {
         [Header("How far you need to move the controller before you reach the maximum value"), SerializeField]
-        private float _distanceToMax = 0.5f;
+        protected float _distanceToMax = 0.5f;
         [Header("Whether or not we use the Y axis in our vector calculation"), SerializeField]
-        private bool _ignoreYAxis = true;
+        protected bool _ignoreYAxis = true;
 
-        private Vector3 _startPosition;
+        protected Vector3 _startPosition;
 
         protected override void Awake()
         {
@@ -27,13 +27,13 @@
             trackedController.Ungripped += UngrippedHandler;
         }
 
-        private void GrippedHandler(object sender, ClickedEventArgs e)
+        protected virtual void GrippedHandler(object sender, ClickedEventArgs e)
         {
             _startPosition = transform.localPosition;
             hub.BeginInput(this);
         }
 
-        private void UngrippedHandler(object sender, ClickedEventArgs e)
+        protected virtual void UngrippedHandler(object sender, ClickedEventArgs e)
         {
             hub.EndInput(this);
         }
@@ -45,7 +45,7 @@
         /// Y will be zero if ignore Y axis is set to true.
         /// </summary>
         /// <returns></returns>
-        public override Vector3 GetVector()
+        public override Vector3 GetPrimary()
         {
             Vector3 delta = transform.localPosition - _startPosition;
             if (_ignoreYAxis)
