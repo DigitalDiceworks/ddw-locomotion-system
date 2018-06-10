@@ -10,6 +10,7 @@
     {
         [Header("How fast the user will rotate"), SerializeField]
         private float _maxSpeed;
+        [SerializeField] private Transform _head;
 
         protected override void Awake()
         {
@@ -25,8 +26,8 @@
                 return;
             }
 
-            Vector3 direction = input.direction * _maxSpeed * Time.deltaTime;
-            transform.Rotate(direction);
+            float angle = input.direction.y * _maxSpeed * Time.deltaTime;
+            transform.RotateAround(_head.position, Vector3.up, angle);
         }
     }
 }

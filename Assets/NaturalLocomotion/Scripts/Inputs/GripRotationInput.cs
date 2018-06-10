@@ -19,7 +19,7 @@
         protected override void GrippedHandler(object sender, ClickedEventArgs e)
         {
             base.GrippedHandler(sender, e);
-            _plane = new Plane(transform.right, _startPosition);
+            _plane = new Plane(-transform.right, _startPosition);
         }
 
         /// <summary>
@@ -27,7 +27,7 @@
         /// <returns></returns>
         public override Vector3 GetSecondary()
         {
-            float distance = _plane.GetDistanceToPoint(transform.position);
+            float distance = _plane.GetDistanceToPoint(transform.localPosition);
             if (Mathf.Abs(distance) - _deadzone < 0f)
             {
                 return Vector3.zero;
