@@ -59,5 +59,10 @@
             }
             return delta;
         }
+
+        public override Vector3 GetSecondary()
+        {
+            return GetPrimary();
+        }
     }
 }

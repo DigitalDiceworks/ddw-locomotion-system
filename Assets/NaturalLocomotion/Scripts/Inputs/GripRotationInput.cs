@@ -14,12 +14,12 @@
         [Header("WRITE ME BETTER"), SerializeField]
         private float _deadzone = 0.15f;
 
-        private Plane _plane;
+        private float _startingRotationAxis;
 
         protected override void GrippedHandler(object sender, ClickedEventArgs e)
         {
             base.GrippedHandler(sender, e);
-            _plane = new Plane(-transform.right, _startPosition);
+            _startingRotationAxis = transform.localEulerAngles.y;
         }
 
         /// <summary>
@@ -27,20 +27,23 @@
         /// <returns></returns>
         public override Vector3 GetSecondary()
         {
-            float distance = _plane.GetDistanceToPoint(transform.localPosition);
-            if (Mathf.Abs(distance) - _deadzone < 0f)
+            Vector3 delta = transform.localPosition - _startPosition;
+            if (_ignoreYAxis)
             {
-                return Vector3.zero;
+                delta.y = 0f;
             }
-            if (distance > 0f)
+            delta /= _distanceToMax;
+            if (delta.sqrMagnitude > 1)
             {
-                distance -= _deadzone;
+                delta.Normalize();
             }
-            else
-            {
-                distance += _deadzone;
-            }
-            return Vector3.up * distance;
+            return delta;
+
+            // turning rotation logic
+            //float rotationAxis = transform.localEulerAngles.y;
+            //float deltaAngle = Mathf.DeltaAngle(_startingRotationAxis, rotationAxis);
+            //deltaAngle -= Mathf.Sign(deltaAngle) * _deadzone;
+            //return new Vector3(0f, deltaAngle, 0f);
         }
     }
 }

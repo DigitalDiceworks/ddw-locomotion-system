@@ -192,6 +192,7 @@
                     isPrimary = false,
                     direction = CalculateDirectionWithModifiers(_secondaryInput.GetSecondary())
                 };
+                Debug.Log(container.direction);
                 onInput(container);
             }
         }
