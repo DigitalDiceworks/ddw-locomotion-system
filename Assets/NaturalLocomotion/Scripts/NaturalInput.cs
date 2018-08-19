@@ -2,20 +2,15 @@
 {
     using UnityEngine;
 
-    /// <summary>
-    /// Base class for input handlers that connect to Locomotion hub
-    /// and provide input vectors to move the player
-    /// </summary>
-    public class NaturalInput : HubConnector
+    public abstract class NaturalInput : HubConnector
     {
-        public virtual Vector3 GetPrimary()
+        protected override void Awake()
         {
-            return Vector3.zero;
+            base.Awake();
+
+            hub.Register(this);
         }
 
-        public virtual Vector3 GetSecondary()
-        {
-            return Vector3.zero;
-        }
+        public abstract void Calculate(Rigidbody rigidbody, float modifier);
     }
 }
