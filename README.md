@@ -1,5 +1,5 @@
-# Natural Locomotion
-Natural Locomotion is a VR movement system aimed at enabling a seemless unrestricted form of movement in VR.
+# Digitial Diceworks Locomotion System
+Our Locomotion System aimed at enabling a seemless unrestricted form of movement in VR.
 
 ## Social Media
 [Website](http://www.digitaldiceworks.com) | 
